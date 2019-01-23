@@ -1,0 +1,24 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: dijkatr-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./containers/nginx/:/etc/nginx/conf.d
+      - ./web:/var/www/
+      - ./containers/nginx/:/var/log/nginx/
+      - ./containers/nginx/:/usr/share/nginx/html/
+    links:
+      - php
+
+  php:
+    build:
+      context: containers/php
+    container_name: dijkatr-php-fpm
+    volumes:
+      - ./web:/var/www

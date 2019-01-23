@@ -1,0 +1,11 @@
+{
+  "name": "root/dijkstra",
+  "authors": [
+    {
+      "name": "Safin Roman",
+      "email": "r.n.safin@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {}
+}
