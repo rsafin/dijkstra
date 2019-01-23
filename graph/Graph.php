@@ -27,7 +27,8 @@ class Graph
      * @param int $number
      * @return mixed
      */
-    public function getNodeByNumber(int $number) {
+    public function getNodeByNumber(int $number) : Node
+    {
         return $this->nodes[$number];
     }
 

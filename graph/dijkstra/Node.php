@@ -17,6 +17,12 @@ class Node extends \Graph\Node
 
     private $completed = false;
 
+    /**
+     * Node constructor.
+     * @param int $number
+     * @param array $edges
+     * @param int $weight
+     */
     public function __construct(int $number, array $edges = [], $weight = 0)
     {
         $this->weight = $weight;

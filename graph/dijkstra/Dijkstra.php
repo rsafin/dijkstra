@@ -16,13 +16,25 @@ class Dijkstra
      */
     private $dijkstraGraph;
 
-    public function __construct($graph)
+    public function __construct(Graph $graph)
     {
         $this->dijkstraGraph = $this->copyGraph($graph);
     }
 
 
     public function perform(int $start, int $target) : array
+    {
+        $this->calculateDijkstraWeight($start);
+
+        $path = $this->resolvePath($target);
+
+        return [
+            'path' => $path,
+            'weight' => $this->dijkstraGraph->getNodeByNumber($target)->getWeight()
+        ];
+    }
+
+    private function calculateDijkstraWeight(int $start) : void
     {
         /**
          * @var $startNode Node
@@ -34,15 +46,13 @@ class Dijkstra
         while ($nextNode !== null) {
             $nextNode = $this->calculateNodeAndReturnNext($nextNode);
         }
-
-        return array_reverse($this->resolvePath($target));
     }
 
     /**
      * @param Node $node
      * @return Node|mixed|null
      */
-    private function calculateNodeAndReturnNext(Node &$node)
+    private function calculateNodeAndReturnNext(Node &$node) : ?Node
     {
         $minWeightNode = null;
         $minWeight = INF;
@@ -84,14 +94,14 @@ class Dijkstra
             $nextNode = $this->getNextNodeForPath($nextNode);
         }
 
-        return $path;
+        return array_reverse($path);
     }
 
     /**
      * @param Node $node
      * @return Node|mixed|null
      */
-    private function getNextNodeForPath(Node $node)
+    private function getNextNodeForPath(Node $node) : ?Node
     {
         foreach ($node->getEdges() as $edge) {
             /**
