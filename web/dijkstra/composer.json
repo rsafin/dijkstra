@@ -6,6 +6,9 @@
       "email": "r.n.safin@gmail.com"
     }
   ],
+  "autoload": {
+    "psr-4": {"": "src/"}
+  },
   "minimum-stability": "dev",
   "require": {}
 }

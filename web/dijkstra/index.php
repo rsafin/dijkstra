@@ -1,13 +1,9 @@
 <?php
+
+require __DIR__ . '/vendor/autoload.php';
+
 use Graph\GraphFactory;
 use Graph\Dijkstra\Dijkstra;
-
-require_once 'graph/GraphFactory.php';
-require_once 'graph/Graph.php';
-require_once 'graph/Node.php';
-require_once 'graph/Edge.php';
-require_once 'graph/dijkstra/Dijkstra.php';
-require_once 'graph/dijkstra/Node.php';
 
 $json = '[
   {
