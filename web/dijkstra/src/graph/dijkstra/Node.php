@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: rnsaf
- * Date: 23.01.2019
- * Time: 22:57
- */
 
 namespace Graph\Dijkstra;
 
