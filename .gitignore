@@ -2,3 +2,4 @@
 .DS_Store
 /containers/nginx/access.log
 /containers/nginx/error.log
+/web/dijkstra/vendor/
